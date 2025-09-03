@@ -22,5 +22,22 @@ Your buddy for managing placement updates
   - **Deadline** (if present in body as `Deadline:` or `on or before`)  
 
 ### 📝 Google Sheets Logging
-- Saves extracted details into a structured Google Sheet:  
+- Saves extracted details into a structured Google Sheet:
+
+- Skips duplicates (checks Gmail link before logging).
+- Marks processed emails as **read**.
+
+---
+
+## 🛠 How It Works
+1. **Query Gmail** for unread threads from placement senders (last 30 mins).  
+2. **Check subject line** for placement-related keywords (`placement`, `internship`, `registration`).  
+3. **Parse body** for deadlines using regex patterns like:  
+ - `Deadline: 14th August 2025 (10:00 am)`  
+ - `on or before 14th August 2025`  
+4. **Log results** into Google Sheets with timestamp.  
+5. **Mark email read** once successfully processed.  
+
+---
+
 
